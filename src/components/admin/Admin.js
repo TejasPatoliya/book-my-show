@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { eventData } from "../EventData";
+import { successToastMessage } from "../../utils";
 
 const Admin = () => {
   const [bookedTicketData, setBookedTicketData] = useState([]);
@@ -15,6 +16,7 @@ const Admin = () => {
   // for reseting event data
   const resetEventData = () => {
     localStorage.setItem("eventData", JSON.stringify(eventData));
+    successToastMessage("New event data added");
   };
 
   return (
@@ -26,6 +28,14 @@ const Admin = () => {
         }}
       >
         Reset Event Data
+      </button>
+      <button
+        className="btn btn-danger mt-2 ms-2"
+        onClick={() => {
+          resetEventData();
+        }}
+      >
+        Add New Event Data
       </button>
       {bookedTicketData.length !== 0 ? (
         bookedTicketData.map((item, i) => {

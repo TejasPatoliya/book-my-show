@@ -58,7 +58,7 @@ const User = () => {
               );
             })
           ) : (
-            <div>No Event Found!</div>
+            <div className="fs-3 text-center">No Event Found!</div>
           )}
         </div>
       </div>
